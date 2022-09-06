@@ -1,6 +1,5 @@
 package pro.sky.course_332.APISwaggerPostmanGradle.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -51,8 +50,9 @@ public class BooksController {
     }
 
     @DeleteMapping("/{id}")
-    public Book deleteBook(@PathVariable long id) {
-        return bookService.deleteBook(id);
+    public ResponseEntity deleteBook(@PathVariable long id) {
+     bookService.deleteBook(id);
+     return ResponseEntity.ok().build();
     }
 
 

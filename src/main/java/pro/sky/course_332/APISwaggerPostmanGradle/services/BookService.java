@@ -54,4 +54,18 @@ public class BookService {
 //        return books.values();
         return bookRepository.findAll();
     }
+
+    public Book findByName(String name){
+        return bookRepository.findByNameIgnoreCase(name);
+    }
+
+    public Collection<Book> findByAuthor(String author){
+        return bookRepository.findBooksByAuthorIgnoreCase(author);
+    }
+
+    public Collection<Book> findAllByName(String part){
+        return bookRepository.findAllByNameContainsIgnoreCase(part);
+    }
+
+
 }

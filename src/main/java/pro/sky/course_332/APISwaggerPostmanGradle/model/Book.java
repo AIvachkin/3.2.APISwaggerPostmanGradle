@@ -1,9 +1,7 @@
 package pro.sky.course_332.APISwaggerPostmanGradle.model;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
@@ -15,7 +13,18 @@ public class Book {
     private String name;
     private String author;
 
+    public Book(long id, String name, String author) {
+        this.id = id;
+        this.name = name;
+        this.author = author;
+    }
 
+    public Book() {
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "reader_id")
+    private Reader reader;
 
     public long getId() {
         return id;
